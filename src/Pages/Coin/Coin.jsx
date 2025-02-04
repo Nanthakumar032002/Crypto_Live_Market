@@ -43,11 +43,11 @@ const Coin = () => {
     return (
       <div className='coin'>
         <div className="coin-name">
-          <img src={coinData?.image?.large} alt="" />
+          <img src={coinData.image.large} alt="" />
           <p><b>{coinData?.name} ({coinData?.symbol?.toUpperCase()})</b></p>
         </div>
         <div className="line-chart">
-          <Line historicalData={historicalData} />
+          <Line historicalData={historicalData} /> {/* Line Chart image */}
         </div>
         <div className="coin-info">
           <ul>

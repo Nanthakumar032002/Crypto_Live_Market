@@ -6,7 +6,7 @@ export const CoinContext = createContext();
 const CoinContextProvider = (props)=>{
 
     const[allCoin,setallCoin]=useState([]);
-    const[Currency,setCurrency]=useState({
+    const[Currency,setCurrency]=useState({      // handle the nav bar ==> select options
         name:"usd",
         symbol:"$"
     })
@@ -22,7 +22,7 @@ const CoinContextProvider = (props)=>{
             .then(res => setallCoin(res))
             .catch(err => console.error(err));
     }
-    useEffect(()=>{
+    useEffect(()=>{ 
         fetchAllcoin();
     },[Currency])
 
