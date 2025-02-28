@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useState } from 'react'
 import './Home.css'
 import { CoinContext } from '../../Context/CoinContext'
 import {Link} from 'react-router-dom';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const Home = () => {
 
   const{allCoin,Currency}=useContext(CoinContext)
-  
   const[displayCoin,setdisplayCoin]=useState([]);
   const [input,setInput]=useState("");
   
@@ -29,6 +29,7 @@ const Home = () => {
   },[allCoin])
   return (
     <div className='home'>
+      <Navbar/>
       <div className='hero'>
         <h1>Largest <br/> Crypto Marketplace</h1>
         <p>Welcome to the world's largest cryptocurrency 
@@ -59,8 +60,7 @@ const Home = () => {
           <p style={{textAlign:"center"}}>24Hr Change</p>
           <p className='market-cap'>Market Cap</p>
         </div>
-        {
-          displayCoin.slice(0,10).map((item,index)=>{
+        {displayCoin.slice(0,10).map((item,index)=>{
             return <Link to={`/coin/${item.id}`} className="table-layout"  key={index}>
               <p>{item.market_cap_rank}</p> 
               <div className='coins-items'>

@@ -3,6 +3,7 @@ import './Coin.css';
 import { useParams } from 'react-router-dom';
 import { CoinContext } from '../../Context/CoinContext';
 import Line from '../../Components/Linechart/Line';
+import Navbar from '../../Components/Navbar/Navbar';
 
 const Coin = () => {
   const { Currency } = useContext(CoinContext);
@@ -30,6 +31,7 @@ const Coin = () => {
 
     fetch(`https://api.coingecko.com/api/v3/coins/${coinId}/market_chart?vs_currency=${Currency.name}&days=10&interval=daily`, options)
       .then(res => res.json())
+     
       .then(res => setHistoricalData(res))
       .catch(err => console.error(err));
   };
@@ -42,6 +44,7 @@ const Coin = () => {
   if (coinData && historicalData) {
     return (
       <div className='coin'>
+      <Navbar/>
         <div className="coin-name">
           <img src={coinData.image.large} alt="" />
           <p><b>{coinData?.name} ({coinData?.symbol?.toUpperCase()})</b></p>

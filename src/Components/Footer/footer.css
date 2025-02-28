@@ -1,6 +1,8 @@
 .footer{
     text-align: center;
     margin: auto;
+    background: black;
+    color: rgb(234, 234, 234);
     max-width: 80%;
     border-top: 1px solid #989898;
     padding: 15px 0px;
